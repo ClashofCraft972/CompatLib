@@ -72,4 +72,4 @@ In your mods, Create the `Compatlib` repository, create a `misc.json`, for the s
 ```
 
 
-## To use this library, go to the Wiki tab
+## To use this library, chack the [Wiki](https://github.com/ClashofCraft972/CompatLib/wiki/Compatibility-Library-Wiki)
