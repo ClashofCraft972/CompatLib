@@ -70,3 +70,6 @@ In your mods, Create the `Compatlib` repository, create a `misc.json`, for the s
         }
 }
 ```
+
+
+## To use this library, go to the Wiki tab
