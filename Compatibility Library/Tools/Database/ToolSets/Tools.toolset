@@ -1,0 +1,17 @@
+{
+   "toolList" : [
+      {
+         "name" : "HookingTool",
+         "autoTool": true,
+         "showInInventory": false,
+         "previewRenderable" : "$CONTENT_DATA/Animations/Char_Tools/Char_connecttool/char_connecttool.rend",
+         "previewRotation" : [ 1, 0, 0, 0, 0, -1, 0, 1, 0 ],
+         "script" : {
+            "class" : "HookingTool",
+            "data" : {},
+            "file" : "$CONTENT_DATA/Scripts/tools/HookingTool.lua"
+         },
+         "uuid" : "6e67628a-ff85-45cc-b202-3d18f267ab40"
+      }
+   ]
+}

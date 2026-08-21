@@ -1,4 +1,6 @@
-function CompatLibs.getUuidData( searchedUuid )
+print("Loading CompatLib basic functions")
+
+function CompatLib.getUuidData( searchedUuid )
     searchedUuid = tostring(searchedUuid)
     if sm.localData.set[searchedUuid] == nil then
         sm.log.error( "[ERROR] in \"$CONTENT_8ec0b0e1-b0ab-4f34-ae1c-59ad47c6e5ec/Scripts/pipeFunctions.lua\" : \n".."Uuid \""..tostring(searchedUuid).."\" isn't registered/detected in the Compatibility Library/ModDatabase")
@@ -10,7 +12,7 @@ function CompatLibs.getUuidData( searchedUuid )
     local set = sm.json.open(sm.localData.set[searchedUuid].setPath)
     for _, data in pairs(set) do
         for _, Objectdata in pairs(data) do
-            if Objectdata.uuid == searchedUuid then
+            if tostring(Objectdata.uuid) == searchedUuid then
                 local uuidData = Objectdata
                 for dataName, data in pairs(sm.localData.set[searchedUuid]) do
                     uuidData[dataName] = data
@@ -21,11 +23,11 @@ function CompatLibs.getUuidData( searchedUuid )
     end
 end
 
-function CompatLibs.getTagContent( tagName )
+function CompatLib.getTagContent( tagName )
     return sm.localData.tags[tagName]
 end
 
-function CompatLibs.getUuidTagList( uuid )
+function CompatLib.getUuidTagList( uuid )
     uuid = tostring(uuid)
     local tagList = sm.localData.set[uuid].tags
     if tagList == nil then
@@ -34,9 +36,9 @@ function CompatLibs.getUuidTagList( uuid )
     return tagList
 end
 
-function CompatLibs.isUuidInTag( uuid, tag )
+function CompatLib.isUuidInTag( uuid, tag )
     uuid = tostring(uuid)
-    local tagContent = CompatLibs.getTagContent(tag)
+    local tagContent = CompatLib.getTagContent(tag)
     for tagUuid, uuidData in pairs(tagContent) do
         if tagUuid == uuid then
             return {state = true, data = uuidData}
@@ -45,7 +47,7 @@ function CompatLibs.isUuidInTag( uuid, tag )
     return {state = false, data = nil}
 end
 
-function CompatLibs.addTemporaryPart(uuid, ModID, setPath, type, tags)
+function CompatLib.addTemporaryPart(uuid, ModID, setPath, type, tags)
     uuid = tostring(uuid)
     ModID = tostring(ModID)
     setPath = tostring("$CONTENT_"..ModID..setPath)
