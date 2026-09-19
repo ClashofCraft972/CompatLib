@@ -1,3 +1,6 @@
+--if CompatLib ~= nil then return end
+
+
 print("==================================")
 print("--- Loading Compatibility Libs ---")
 print("==================================")
